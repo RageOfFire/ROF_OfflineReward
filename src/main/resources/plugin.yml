@@ -1,0 +1,25 @@
+name: ROF_OfflineReward
+version: '${project.version}'
+main: me.rof_offlinereward.ROF_OfflineReward
+api-version: 1.13
+authors: [ RageOfFire ]
+description: A plugin that help you give reward for offline player!
+softdepend: [PlaceholderAPI]
+commands:
+  rofofflinereward:
+    description: Manage plugin
+    usage: /rofofflinereward <command>
+    aliases:
+      - rofow
+      - offlinereward
+      - ow
+permission:
+  rofow.admin:
+    description: Permission for admin user plugin
+    default: op
+  rofow.exempt:
+    description: Permission allow player not earning reward
+    default: op
+  rofow.alert:
+    description: Alert when someone got reward
+    default: op

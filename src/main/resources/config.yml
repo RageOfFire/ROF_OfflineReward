@@ -1,0 +1,90 @@
+#####################################################
+#               ROF_OfflineReward                   #
+#               by RageOfFire                       #
+#####################################################
+
+# Time formatter:
+# d = day
+# h = hour
+# m = minute
+# s = second
+
+# Placeholder:
+# %player% is a player name
+# All placeholder from PlaceholderAPI support !!!
+
+#########################################
+#               Options                 #
+#########################################
+
+# A minimum time player need to play on server to earn reward for example player need to play at
+# least 10 days to earn reward: min-time-play: "10d"
+# Set it to min-time-play: "" to make it reward without need minimum time play
+min-time-play: "10d"
+
+# this is an option to log out information when player got reward
+# console: Will send a message to console
+# player: Will send a message to player have permission (rofow.alert)
+# file: Will send a message to file name "logs.txt"
+logs:
+  console: true
+  player: true
+  file: false
+
+messages:
+  usage: '&cUsage: /rofofflinereward <command>'
+  reload: '&aSuccessfully reloaded ROF_OfflineReward plugin!'
+  # Placeholder
+  # %player% is a player name earn reward
+  # %reward% is the reward id
+  # %time% is time formatted which need to offline for reward
+  alert: '&e%player% just got a reward %reward% for %time% offline'
+
+#########################################
+#               Rewards                 #
+#########################################
+
+# Now time to get some explain
+#   default:
+#    permission: "group.default"
+#    time: "5d 6h 30m 20s"
+#    message: "You earn reward by default"
+#    execute: 'PLAYER'
+#    commands:
+#      - "say hi"
+#      - "give %player% diamond 1"
+#
+# default is your custom id must be unique for each reward
+# permission is a permission required to earn that reward (if none permission is set the reward will give to all player by default)
+# time is the time player offline or higher your can use time with Time formatter
+# message is the optional message to send to that player
+# execute is a way the command will be execute "PLAYER" or "CONSOLE"
+# commands is a list command to execute for that player
+
+rewards:
+  default:
+    permission: "group.default"
+    time: "5d 6h 30m 20s"
+    message: "&aYou earn reward by default"
+    execute: 'PLAYER'
+    commands:
+      - "me Hi ! I'm back"
+
+  vip:
+    permission: "group.vip"
+    time: "10d 12h"
+    message: "&eYou earn reward for group vip only"
+    execute: 'CONSOLE'
+    commands:
+      - "say Welcome back, %player%!"
+      - "give %player% gold_ingot 5"
+
+# Don't want to reward player ? You can also punish them for being offline too
+  punish:
+    permission: "permission.to.punish"
+    time: "7d"
+    message: "&cYou have been off the server for 1 week"
+    execute: 'CONSOLE'
+    commands:
+      - "me off the server for 1 week"
+      - "effect give %player% slowness 30 2 true"
